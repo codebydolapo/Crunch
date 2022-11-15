@@ -3,7 +3,7 @@ function Crunch() {
     this.newTransactions = [];
 
 
-    this.createNewBlock = (nonce, previousBlockHash, hash) => {
+    Crunch.prototype.createNewBlock = (nonce, previousBlockHash, hash) => {
         const newBlock = {
             //the block's number
             index: this.chain.length + 1,
