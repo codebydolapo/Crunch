@@ -17,3 +17,5 @@ Crunch.prototype.createNewBlock = (nonce, previousBlockHash, hash) => {
     this.chain.push(newBlock)
     return newBlock
 }
+
+module.exports = Crunch
