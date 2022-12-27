@@ -3,9 +3,7 @@ const Crunch = require("./crunch");
 const crunch = new Crunch();
 async function mainTest() {
     crunch.createNewBlock(72637, "82YRIUY274YR2", '726287463248H')
-    crunch.createNewBlock(72637, "8EUDUJD9J93DJ", 'NDI93U9D393HD')
-    crunch.createNewBlock(72637, "N3EUJ9UEE8D39", 'JS92UEJ83E3J3')
-
+    crunch.createNewTransaction(100, "DOLAPO4YHFH7YD8JD9UD3", "TONI949E39D8EHDRU488")
     console.log(crunch)
 }
 
