@@ -1,3 +1,5 @@
+const sha256 = require("sha256")
+
 class Crunch {
 
     constructor() {
@@ -38,6 +40,13 @@ class Crunch {
         const newBlockNumber = this.getLastBlock()["index"]  + 1
         return `Block Number = ${newBlockNumber}`
     }
+
+    hashBlock(previousBlockHash, currentBlockData, nonce){
+        const stringifiedData = previousBlockHash + JSON.stringify(currentBlockData) + nonce.toString()
+        const hash = sha256(stringifiedData)
+        return hash;
+    }
+
 }
 
 
