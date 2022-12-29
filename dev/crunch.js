@@ -50,6 +50,17 @@ class Crunch {
         return hash;
     }
 
+    proofOfWork(previousBlockHash, currentBlockData){
+        let nonce = 0;
+        let hash = hashBlock(previousBlockHash, JSON.striingify(currentBlockData), nonce);
+        while(hash.subString(0, 4) != "0000"){
+            nonce ++;
+            hash = hashBlock(previousBlockHash, JSON.striingify(currentBlockData), nonce);
+        }
+
+        return nonce;
+    }
+
 }
 
 
