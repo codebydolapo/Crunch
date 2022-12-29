@@ -7,6 +7,8 @@ class Crunch {
         this.pendingTransactions = []; //saves all transactions pending mining
     }
 
+    
+
     createNewBlock(nonce, previousBlockHash, hash) {
         const newBlock = {
             index: this.chain.length + 1, //appends an index to the new block
@@ -38,9 +40,10 @@ class Crunch {
 
         //gets the last block object in the chain and returns it
         const newBlockNumber = this.getLastBlock()["index"]  + 1
-        return `Block Number = ${newBlockNumber}`
+        return newBlockNumber
     }
 
+    //SHA256 hashing function
     hashBlock(previousBlockHash, currentBlockData, nonce){
         const stringifiedData = previousBlockHash + JSON.stringify(currentBlockData) + nonce.toString()
         const hash = sha256(stringifiedData)
