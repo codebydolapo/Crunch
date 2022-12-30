@@ -7,7 +7,6 @@ class Crunch {
         this.pendingTransactions = []; //saves all transactions pending mining
     }
 
-    
 
     createNewBlock(nonce, previousBlockHash, hash) {
         const newBlock = {
@@ -46,16 +45,17 @@ class Crunch {
     //SHA256 hashing function
     hashBlock(previousBlockHash, currentBlockData, nonce){
         const stringifiedData = previousBlockHash + JSON.stringify(currentBlockData) + nonce.toString()
-        const hash = sha256(stringifiedData)
-        return hash;
+        const hash = sha256(stringifiedData) 
+        return hash; //returns a hash
     }
 
+    //proof-of-work function
     proofOfWork(previousBlockHash, currentBlockData){
         let nonce = 0;
-        let hash = hashBlock(previousBlockHash, JSON.striingify(currentBlockData), nonce);
-        while(hash.subString(0, 4) != "0000"){
-            nonce ++;
-            hash = hashBlock(previousBlockHash, JSON.striingify(currentBlockData), nonce);
+        let hash = this.hashBlock(previousBlockHash, JSON.stringify(currentBlockData), nonce); //hashing function
+        while(hash.substring(0, 4) != "0000"){
+            nonce ++; //increments the nonce over every iteration
+            hash = this.hashBlock(previousBlockHash, JSON.stringify(currentBlockData), nonce); //runs the hash functon again
         }
 
         return nonce;
