@@ -5,6 +5,7 @@ class Crunch {
     constructor() {
         this.chain = []; //contains all the blocks in a chain
         this.pendingTransactions = []; //saves all transactions pending mining
+        this.createNewBlock(314159, "682d0bc18ddac1fd31a5783d6cf7aa1efc74ca3489f3279fb53790a73ad0a719", "0")
     }
 
 
