@@ -37,7 +37,7 @@ class Crunch {
 
         this.pendingTransactions.push(newTransaction)
 
-        //gets the last block object in the chain and returns it
+        //gets the last block object in the chain and returns an index greater by one
         const newBlockNumber = this.getLastBlock()["index"] + 1
         return newBlockNumber
     }
